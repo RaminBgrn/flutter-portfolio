@@ -1,46 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:web_testing/desktop/screens/desktop.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage("images/ramin-bagherian.jpg"),
-          ),
-        ),
-        child: const Row(children: [
-          Expanded(
-            flex: 1,
-            child: Column(
-              children: [
-                Text(
-                  'Hello',
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.amber,
-                  ),
-                ),
-                Text(
-                  "I'm Ramin Bagherian",
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.amber,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: SizedBox(),
-          )
-        ]),
-      ),
-    );
+    return Desktop();
   }
 }
