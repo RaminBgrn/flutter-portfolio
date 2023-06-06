@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web_testing/common/colors.dart';
+import 'package:web_testing/common/on_hover.dart';
+import 'package:web_testing/common/title_widget.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
@@ -26,13 +28,14 @@ class UserInfo extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Expanded(
-              flex: 4,
-              child: CircleAvatar(
-                backgroundImage: AssetImage('images/me.jpg'),
-                radius: 150,
-                backgroundColor: Colors.transparent,
-              )),
+          Expanded(
+            flex: 4,
+            child: CircleAvatar(
+              backgroundImage: const AssetImage('images/me.jpg'),
+              radius: 150,
+              backgroundColor: myOrange[400]!,
+            ),
+          ),
           const SizedBox(
             height: 40,
           ),
@@ -40,46 +43,12 @@ class UserInfo extends StatelessWidget {
             flex: 3,
             child: Column(
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    RichText(
-                      text: TextSpan(
-                          text: 'R',
-                          style: GoogleFonts.archivoNarrow(
-                              color: myOrange[300],
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold),
-                          children: [
-                            TextSpan(
-                              text: "amin",
-                              style: GoogleFonts.archivoNarrow(
-                                  color: Colors.white,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ]),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    RichText(
-                      text: TextSpan(
-                          text: 'B',
-                          style: GoogleFonts.archivoNarrow(
-                              color: myOrange[300],
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold),
-                          children: [
-                            TextSpan(
-                              text: "agherian",
-                              style: GoogleFonts.archivoNarrow(
-                                  color: Colors.white,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ]),
-                    ),
+                    TitleWidget(title: "Ramin"),
+                    SizedBox(width: 8),
+                    TitleWidget(title: "Bagherian"),
                   ],
                 ),
                 const SizedBox(height: 15),
@@ -131,31 +100,11 @@ class UserInfo extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      SvgPicture.asset(
-                        'svg/telegram.svg',
-                        color: Colors.white,
-                        width: 20,
-                      ),
-                      SvgPicture.asset(
-                        'svg/instagram.svg',
-                        color: Colors.white,
-                        width: 20,
-                      ),
-                      SvgPicture.asset(
-                        'svg/github.svg',
-                        color: Colors.white,
-                        width: 20,
-                      ),
-                      SvgPicture.asset(
-                        'svg/stackoverflow.svg',
-                        color: Colors.white,
-                        width: 20,
-                      ),
-                      SvgPicture.asset(
-                        'svg/twitter.svg',
-                        color: Colors.white,
-                        width: 20,
-                      ),
+                      socialMedia('svg/telegram.svg', () {}),
+                      socialMedia('svg/instagram.svg', () {}),
+                      socialMedia('svg/github.svg', () {}),
+                      socialMedia('svg/stackoverflow.svg', () {}),
+                      socialMedia('svg/twitter.svg', () {}),
                     ],
                   ),
                 )
@@ -229,5 +178,17 @@ class UserInfo extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget socialMedia(String iconPath, VoidCallback onClick) {
+    return OnHover(
+        onClick: onClick,
+        builder: (event) {
+          return SvgPicture.asset(
+            iconPath,
+            color: event ? myOrange[400] : Colors.white,
+            width: 20,
+          );
+        });
   }
 }

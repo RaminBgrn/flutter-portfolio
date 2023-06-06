@@ -1,7 +1,9 @@
 import 'dart:ui';
 
+import 'package:fadingpageview/fadingpageview.dart';
 import 'package:flutter/material.dart';
 import 'package:web_testing/common/colors.dart';
+import 'package:web_testing/desktop/screens/about_me.dart';
 import 'package:web_testing/desktop/widgets/main_menu.dart';
 import 'package:web_testing/desktop/widgets/user_info.dart';
 
@@ -52,6 +54,12 @@ class Desktop extends StatelessWidget {
                       ),
                     ),
                   ),
+                  child: FadingPageView(
+                    itemBuilder: (context, index) {
+                      return const AboutMe();
+                    },
+                    controller: FadingPageViewController(),
+                  ),
                 ),
                 const UserInfo(),
                 const MainMenu(),
@@ -59,52 +67,6 @@ class Desktop extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget sectionTitle(String text) {
-    return SizedBox(
-      height: 38,
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              width: 30,
-              height: 30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.amber.withOpacity(0.2), Colors.transparent],
-                ),
-              ),
-            ),
-          ),
-          Positioned.fill(
-            left: 5,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: RichText(
-                text: TextSpan(
-                    text: text[0],
-                    style: const TextStyle(
-                      fontSize: 24,
-                      color: Colors.amber,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: text.substring(1, text.length),
-                        style:
-                            const TextStyle(fontSize: 24, color: Colors.white),
-                      ),
-                    ]),
-              ),
-            ),
-          )
-        ],
       ),
     );
   }
