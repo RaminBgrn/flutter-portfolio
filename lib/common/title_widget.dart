@@ -18,7 +18,7 @@ class TitleWidget extends StatelessWidget {
         style: firstCharStyle ??
             GoogleFonts.archivoNarrow(
               color: myOrange[300],
-              fontSize: 28,
+              fontSize: 34,
               fontWeight: FontWeight.bold,
             ),
         children: [

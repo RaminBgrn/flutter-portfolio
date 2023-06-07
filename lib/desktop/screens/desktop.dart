@@ -1,14 +1,33 @@
 import 'dart:ui';
 
-import 'package:fadingpageview/fadingpageview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:web_testing/common/colors.dart';
 import 'package:web_testing/desktop/screens/about_me.dart';
 import 'package:web_testing/desktop/widgets/main_menu.dart';
 import 'package:web_testing/desktop/widgets/user_info.dart';
 
-class Desktop extends StatelessWidget {
+class Desktop extends StatefulWidget {
   const Desktop({super.key});
+
+  @override
+  State<Desktop> createState() => _DesktopState();
+}
+
+class _DesktopState extends State<Desktop> {
+  late PageController pageController;
+
+  @override
+  void initState() {
+    pageController = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +50,11 @@ class Desktop extends StatelessWidget {
                 ),
               ),
               child: BackdropFilter(
-                  child: SizedBox(),
                   filter: ImageFilter.blur(
                     sigmaX: 10,
                     sigmaY: 10,
-                  )),
+                  ),
+                  child: const SizedBox()),
             ),
             Row(
               textDirection: TextDirection.rtl,
@@ -54,15 +73,18 @@ class Desktop extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: FadingPageView(
-                    itemBuilder: (context, index) {
-                      return const AboutMe();
-                    },
-                    controller: FadingPageViewController(),
+                  child: PageView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: pageController,
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      const AboutMe(),
+                      Container(color: Colors.red),
+                    ],
                   ),
                 ),
                 const UserInfo(),
-                const MainMenu(),
+                MainMenu(controller: pageController),
               ],
             )
           ],
