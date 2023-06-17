@@ -50,21 +50,12 @@ class AboutMe extends StatelessWidget {
                           const SizedBox(
                             height: 20,
                           ),
-                          Text(
-                            "Hello I'm Ramin Bagherian.",
-                            style: GoogleFonts.sourceSansPro(
-                                color: myGrey[300],
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
-                          ),
+                          Text("Hello I'm Ramin Bagherian.",
+                              style: Theme.of(context).textTheme.displayMedium),
                           Text(
                               "Moble App and Web Developer from Iran, Urmia. I have rich experience in web site programming and also mobile application developing, I love to talk with you about our unique. ",
                               textAlign: TextAlign.justify,
-                              style: GoogleFonts.sourceSansPro(
-                                  color: myGrey[400],
-                                  fontSize: 16,
-                                  height: 1.4,
-                                  fontWeight: FontWeight.w400)),
+                              style: Theme.of(context).textTheme.displaySmall),
                         ],
                       ),
                     ),
@@ -129,7 +120,8 @@ class AboutMe extends StatelessWidget {
                                     ])),
                             child: SvgPicture.asset(
                               'svg/mobile.svg',
-                              color: Colors.white,
+                              colorFilter: const ColorFilter.mode(
+                                  Colors.white, BlendMode.srcIn),
                               width: 10,
                               height: 10,
                             ),
@@ -187,7 +179,12 @@ class AboutMe extends StatelessWidget {
                                       Colors.transparent,
                                     ])),
                             child: SvgPicture.asset('svg/web.svg',
-                                color: Colors.white, width: 10, height: 10),
+                                colorFilter: const ColorFilter.mode(
+                                  Colors.white,
+                                  BlendMode.srcIn,
+                                ),
+                                width: 10,
+                                height: 10),
                           ),
                           Text(
                             'Web Design',

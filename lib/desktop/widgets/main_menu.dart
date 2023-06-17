@@ -1,4 +1,3 @@
-import 'package:fadingpageview/fadingpageview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:web_testing/common/colors.dart';
@@ -26,7 +25,9 @@ class MainMenu extends StatelessWidget {
                 'svg/menu.svg',
                 width: 32,
                 height: 32,
-                color: isHover ? myOrange[400] : Colors.white,
+                colorFilter: isHover
+                    ? ColorFilter.mode(myOrange[400]!, BlendMode.dstIn)
+                    : const ColorFilter.mode(Colors.white, BlendMode.dstIn),
               );
             }),
       ),

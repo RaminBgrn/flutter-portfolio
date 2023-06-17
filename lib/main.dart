@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:web_testing/common/colors.dart';
+
 import 'package:web_testing/screens/home.dart';
 
 void main() {
@@ -16,9 +19,20 @@ class MyApp extends StatelessWidget {
     FlutterNativeSplash.remove();
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Ramin Bagherian',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          textTheme: TextTheme(
+            displayLarge: GoogleFonts.archivoNarrow(
+                color: Colors.white, fontSize: 34, fontWeight: FontWeight.bold),
+            displayMedium: GoogleFonts.sourceSansPro(
+                color: myGrey[300], fontSize: 18, fontWeight: FontWeight.w600),
+            displaySmall: GoogleFonts.sourceSansPro(
+                color: myGrey[400],
+                fontSize: 16,
+                height: 1.4,
+                fontWeight: FontWeight.w400),
+          ),
           useMaterial3: true,
         ),
         home: const Home());

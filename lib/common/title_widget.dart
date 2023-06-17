@@ -24,11 +24,7 @@ class TitleWidget extends StatelessWidget {
         children: [
           TextSpan(
             text: title.substring(1, title.length),
-            style: style ??
-                GoogleFonts.archivoNarrow(
-                    color: Colors.white,
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold),
+            style: style ?? Theme.of(context).textTheme.displayLarge,
           ),
         ],
       ),

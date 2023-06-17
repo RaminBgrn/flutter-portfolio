@@ -97,14 +97,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.5"
-  fadingpageview:
-    dependency: "direct main"
-    description:
-      name: fadingpageview
-      sha256: "740008be1e2fa67dd3b0e87b4ee834d3da237a12e01c2064e1c4a0857855b003"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -360,14 +352,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.2.4"
-  simple_shadow:
-    dependency: "direct main"
-    description:
-      name: simple_shadow
-      sha256: "0c0872b2baffaf12fc91416643785a88081120bac61d704f3f9dbd7e712360fa"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.3.1"
   sky_engine:
     dependency: transitive
     description: flutter
