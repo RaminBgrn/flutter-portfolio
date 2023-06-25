@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:web_testing/common/my_animated_text.dart';
 import 'package:web_testing/common/colors.dart';
 import 'package:web_testing/common/on_hover.dart';
 import 'package:web_testing/common/title_widget.dart';
@@ -52,46 +53,7 @@ class UserInfo extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 15),
-                AnimatedTextKit(
-                  repeatForever: true,
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      'Web Developer',
-                      speed: const Duration(milliseconds: 200),
-                      cursor: " ",
-                      curve: Curves.bounceIn,
-                      textStyle: GoogleFonts.dongle(
-                        fontSize: 24,
-                        color: myOrange[50],
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    TypewriterAnimatedText(
-                      'Mobile Developer',
-                      speed: const Duration(milliseconds: 200),
-                      cursor: " ",
-                      curve: Curves.easeIn,
-                      textStyle: GoogleFonts.dongle(
-                        fontSize: 24,
-                        color: myOrange[50],
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    TypewriterAnimatedText(
-                      'Flutter Developer',
-                      speed: const Duration(milliseconds: 200),
-                      cursor: " ",
-                      curve: Curves.bounceInOut,
-                      textStyle: GoogleFonts.dongle(
-                        fontSize: 24,
-                        color: myOrange[50],
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    // ScaleAnimatedText('Mobile Developer'),
-                    // ScaleAnimatedText('Flutter Developer'),
-                  ],
-                ),
+                const MyAnimatedText(),
                 const SizedBox(
                   height: 60,
                 ),

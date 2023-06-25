@@ -48,6 +48,7 @@ class _SkillItemState extends State<SkillItem> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
+      key: const Key("flipCart"),
       onEnter: (event) => _animationController.forward(),
       onExit: (event) => _animationController.reverse(),
       child: Container(

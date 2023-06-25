@@ -28,10 +28,18 @@ class MyApp extends StatelessWidget {
             displayMedium: GoogleFonts.sourceSansPro(
                 color: myGrey[300], fontSize: 18, fontWeight: FontWeight.w600),
             displaySmall: GoogleFonts.sourceSansPro(
-                color: myGrey[400],
+                 color: myGrey[400],
                 fontSize: 16,
                 height: 1.4,
                 fontWeight: FontWeight.w400),
+            headlineLarge: GoogleFonts.archivoNarrow(
+              color: myGrey[200],
+              fontSize: 24,
+            ),
+            headlineMedium: GoogleFonts.sourceSans3(
+              fontSize: 20,
+              color: myGrey[300],
+            ),
           ),
           useMaterial3: true,
         ),
