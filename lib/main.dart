@@ -23,20 +23,20 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           textTheme: TextTheme(
-            displayLarge: GoogleFonts.archivoNarrow(
+            displayLarge: GoogleFonts.vazirmatn(
                 color: Colors.white, fontSize: 34, fontWeight: FontWeight.bold),
-            displayMedium: GoogleFonts.sourceSansPro(
+            displayMedium: GoogleFonts.vazirmatn(
                 color: myGrey[300], fontSize: 18, fontWeight: FontWeight.w600),
-            displaySmall: GoogleFonts.sourceSansPro(
-                 color: myGrey[400],
+            displaySmall: GoogleFonts.vazirmatn(
+                color: myGrey[400],
                 fontSize: 16,
                 height: 1.4,
                 fontWeight: FontWeight.w400),
-            headlineLarge: GoogleFonts.archivoNarrow(
+            headlineLarge: GoogleFonts.vazirmatn(
               color: myGrey[200],
               fontSize: 24,
             ),
-            headlineMedium: GoogleFonts.sourceSans3(
+            headlineMedium: GoogleFonts.vazirmatn(
               fontSize: 20,
               color: myGrey[300],
             ),

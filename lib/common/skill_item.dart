@@ -106,11 +106,12 @@ class _SkillItemState extends State<SkillItem> with TickerProviderStateMixin {
               alignment: Alignment.bottomCenter,
               child: Text(
                 widget.itemDecription,
+                textDirection: TextDirection.rtl,
                 textAlign: TextAlign.justify,
-                style: GoogleFonts.archivoNarrow(
+                style: GoogleFonts.vazirmatn(
                     color: myGrey[200],
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w300),
               )
                   .animate(controller: _animationController)
                   .moveY(begin: 20)

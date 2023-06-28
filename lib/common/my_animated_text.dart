@@ -46,8 +46,6 @@ class MyAnimatedText extends StatelessWidget {
             fontWeight: FontWeight.w400,
           ),
         ),
-        // ScaleAnimatedText('Mobile Developer'),
-        // ScaleAnimatedText('Flutter Developer'),
       ],
     );
   }

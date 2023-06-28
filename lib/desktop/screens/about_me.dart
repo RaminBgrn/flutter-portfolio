@@ -21,10 +21,10 @@ class AboutMe extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 const TitleWidget(
-                  title: "About Me",
+                  title: "درباره من",
                 ),
                 const SizedBox(
                   height: 20,
@@ -45,17 +45,16 @@ class AboutMe extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(
                             height: 20,
                           ),
-                          Text("Hello I'm Ramin Bagherian.",
-                              style: Theme.of(context).textTheme.displayMedium),
-                          Text(
-                              "Moble App and Web Developer from Iran, Urmia. I have rich experience in web site programming and also mobile application developing, I love to talk with you about our unique. ",
-                              textAlign: TextAlign.justify,
-                              style: Theme.of(context).textTheme.displaySmall),
+                          myInfo("29", "سن :"),
+                          myInfo("ایران, ارومیه", "محل سکونت :"),
+                          myInfo("به دنبال کار", "پوزیشن فعلی :"),
+                          myInfo("فریلنسری و ریموت", "نوع فعالیت :"),
+                          myInfo("فلاتر, اندروید و ووردپرس", "حرفه‌ها :"),
+                          myInfo("جاوااسکریپت و Node JS", "در حال یادگیری :"),
                         ],
                       ),
                     ),
@@ -73,20 +72,40 @@ class AboutMe extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           const SizedBox(
                             height: 20,
                           ),
-                          myInfo("Age : ", "28"),
-                          myInfo("Residence : ", "Iran"),
-                          myInfo("Freelance : ", "Available"),
-                          myInfo("Address : ", "West-Azerbaijan, Urmia"),
+                          Text(
+                            "سلام من رامین باقریان هستم.",
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.rtl,
+                            style: GoogleFonts.vazirmatn(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: myGrey[300]),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 2.0, left: 12.0),
+                            child: Text(
+                              "برنامه نویس موبایل و وب از ایران آذربایجان غربی ارومیه, تجربایت ارزشمندی در زمینه توسعه اپلیکیشن‌های موبایل و توسعه وب به واسطه فلاتر دارم و مشتاقانه منتظر شما برای عملی کردن ایده‌هایتان هستم .",
+                              textDirection: TextDirection.rtl,
+                              textAlign: TextAlign.justify,
+                              style: GoogleFonts.vazirmatn(
+                                  fontSize: 14,
+                                  height: 1.8,
+                                  fontWeight: FontWeight.w400,
+                                  color: myGrey[400]),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ],
                 ),
-                const TitleWidget(title: "My Services"),
+                const TitleWidget(title: "پـیشنهاد من", index: 1),
                 CustomDevider(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
@@ -99,55 +118,60 @@ class AboutMe extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 20),
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
                       flex: 1,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 100,
-                            padding: const EdgeInsets.all(12),
-                            margin: const EdgeInsets.only(bottom: 6),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                gradient: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      myOrange[400]!.withOpacity(0.2),
-                                      Colors.transparent,
-                                    ])),
-                            child: SvgPicture.asset(
-                              'svg/mobile.svg',
-                              colorFilter: const ColorFilter.mode(
-                                  Colors.white, BlendMode.srcIn),
-                              width: 10,
-                              height: 10,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 24.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 100,
+                              padding: const EdgeInsets.all(12),
+                              margin: const EdgeInsets.only(bottom: 6),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        myOrange[400]!.withOpacity(0.2),
+                                        Colors.transparent,
+                                      ])),
+                              child: SvgPicture.asset(
+                                'svg/mobile.svg',
+                                colorFilter: const ColorFilter.mode(
+                                    Colors.white, BlendMode.srcIn),
+                                width: 10,
+                                height: 10,
+                              ),
                             ),
-                          ),
-                          Text(
-                            'Mobile Developing',
-                            style: GoogleFonts.sourceSansPro(
-                                color: myGrey[200],
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 40,
-                              vertical: 8,
+                            Text(
+                              'توسعه موبایل اپ',
+                              style: GoogleFonts.vazirmatn(
+                                  color: myGrey[200],
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600),
                             ),
-                            child: Text(
-                                'Create an animated app prototype and ask people to test it and provide feedback.',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.sourceSansPro(
-                                    color: myGrey[400],
-                                    fontSize: 16,
-                                    height: 1.6,
-                                    fontWeight: FontWeight.w400)),
-                          )
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 40,
+                                vertical: 8,
+                              ),
+                              child: Text(
+                                  'قبل از توسعه اپ یک نمونه پیشنمایش از ایده خود تهیه کنید و از جامعه هدف خود بخواهید که نظر خود را در این باره بیان کنند.',
+                                  textAlign: TextAlign.center,
+                                  textDirection: TextDirection.rtl,
+                                  style: GoogleFonts.vazirmatn(
+                                      color: myGrey[400],
+                                      fontSize: 14,
+                                      height: 1.6,
+                                      fontWeight: FontWeight.w400)),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     CustomDevider(
@@ -162,52 +186,56 @@ class AboutMe extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 1,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 100,
-                            padding: const EdgeInsets.all(12),
-                            margin: const EdgeInsets.only(bottom: 6),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                gradient: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      myOrange[400]!.withOpacity(0.2),
-                                      Colors.transparent,
-                                    ])),
-                            child: SvgPicture.asset('svg/web.svg',
-                                colorFilter: const ColorFilter.mode(
-                                  Colors.white,
-                                  BlendMode.srcIn,
-                                ),
-                                width: 10,
-                                height: 10),
-                          ),
-                          Text(
-                            'Web Design',
-                            style: GoogleFonts.sourceSansPro(
-                                color: myGrey[200],
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 40,
-                              vertical: 8,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 24.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 100,
+                              padding: const EdgeInsets.all(12),
+                              margin: const EdgeInsets.only(bottom: 6),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        myOrange[400]!.withOpacity(0.2),
+                                        Colors.transparent,
+                                      ])),
+                              child: SvgPicture.asset('svg/web.svg',
+                                  colorFilter: const ColorFilter.mode(
+                                    Colors.white,
+                                    BlendMode.srcIn,
+                                  ),
+                                  width: 10,
+                                  height: 10),
                             ),
-                            child: Text(
-                                'Web designers craft the overall vision and plan for a website layout, color, font set.',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.sourceSansPro(
-                                    color: myGrey[400],
-                                    fontSize: 16,
-                                    height: 1.6,
-                                    fontWeight: FontWeight.w400)),
-                          ),
-                        ],
+                            Text(
+                              'توسعه وبسایت',
+                              style: GoogleFonts.vazirmatn(
+                                  color: myGrey[200],
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 40,
+                                vertical: 8,
+                              ),
+                              child: Text(
+                                  'برای شروع یک بیزینس کوچک بهترین کار استفاده از CMS (وردپرس) میباشد که هم صرفه اقتصادی دارد و هم دارای سرعت بالا در توسعه میباشد ',
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.vazirmatn(
+                                      color: myGrey[400],
+                                      fontSize: 14,
+                                      height: 1.6,
+                                      fontWeight: FontWeight.w400)),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -216,7 +244,8 @@ class AboutMe extends StatelessWidget {
                   height: 20,
                 ),
                 const TitleWidget(
-                  title: "Skills",
+                  title: "مـهارت‌های من",
+                  index: 1,
                 ),
                 CustomDevider(
                   begin: Alignment.centerLeft,
@@ -238,7 +267,7 @@ class AboutMe extends StatelessWidget {
                     SkillItem(
                       title: "DART",
                       itemDecription:
-                          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
+                          "دارت زبان برنامه‌نویسی است که توسط گوگل توسعه داده می‌شود و برپایه کلاس، وراثت و شی گرایی است که گرامر آن شبیه زبان C می‌باشد",
                       iconBackgroundColor: myOrange[400]!,
                       iconPath: 'images/dart.png',
                       textLightSideColor: myOrange[400]!,
@@ -246,7 +275,7 @@ class AboutMe extends StatelessWidget {
                     SkillItem(
                       title: "FLUTTER",
                       itemDecription:
-                          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
+                          "فریموورک فلاتر توسط گوگل در سال 2017 رونمایی شد, و به توسعه دهندگان امکان گرفتن خروجی مخصوص اندروید, IOS, وب و دسکتاپ را میدهد.",
                       iconBackgroundColor: myBlue[400]!,
                       iconPath: 'images/flutter.png',
                       textLightSideColor: myBlue[400]!,
@@ -254,7 +283,7 @@ class AboutMe extends StatelessWidget {
                     SkillItem(
                       title: "WORDPRESS",
                       itemDecription:
-                          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
+                          "وردپرس یک سیستم مدیریت محتوای سایت ساز است که با استفاده از آن قادر خواهید بود تا به راه اندازی انواع گوناگونی از وبسایت و وبلاگ بپردازید.",
                       fontSize: 22,
                       iconBackgroundColor: myBlue[400]!,
                       iconPath: 'images/wordpress.png',
@@ -263,7 +292,7 @@ class AboutMe extends StatelessWidget {
                     SkillItem(
                       title: "JAVA",
                       itemDecription:
-                          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
+                          "زبان جاوا شبیه به ++C است؛ اما مدل شیءگرایی آسان‌تری دارد و از قابلیت‌های سطح پایین کمتری پشتیبانی می‌کند. ایدهٔ شیءگرایی جاوا از زبان اسمال‌تاک گرفته شده‌است.",
                       iconBackgroundColor: myBlue[400]!,
                       iconPath: 'images/java.png',
                       textLightSideColor: myBlue[400]!,
@@ -271,7 +300,7 @@ class AboutMe extends StatelessWidget {
                     SkillItem(
                       title: "JS",
                       itemDecription:
-                          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
+                          "یک زبان برنامه‌نویسی سطح بالا و پویا مبتنی بر شی است. از JS در کنار CSS و HTML به عنوان یکی از سه هسته تشکیل دهنده صفحات وب، یاد می‌شود.",
                       iconBackgroundColor: myBlue[400]!,
                       iconPath: 'images/js.png',
                       textLightSideColor: myBlue[400]!,
@@ -279,7 +308,7 @@ class AboutMe extends StatelessWidget {
                     SkillItem(
                       title: "GIT",
                       itemDecription:
-                          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
+                          "گیت یکی از محبوب‌ترین سیستم‌های کنترل ورژن توزیع‌شده و متن‌باز جهان است که توسط لینوس توروالدز خالق هسته سیستم‌عامل لینوکس، ایجاد شده.",
                       iconBackgroundColor: myBlue[400]!,
                       iconPath: 'images/git.png',
                       textLightSideColor: myBlue[400]!,
@@ -301,17 +330,19 @@ class AboutMe extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(title,
-                style: GoogleFonts.sourceSansPro(
+                textDirection: TextDirection.rtl,
+                style: GoogleFonts.vazirmatn(
                     color: myOrange[100],
-                    fontSize: 18,
+                    fontSize: 16,
                     height: 1.6,
-                    fontWeight: FontWeight.w400)),
+                    fontWeight: FontWeight.w500)),
             Text(value,
-                style: GoogleFonts.sourceSansPro(
+                textDirection: TextDirection.rtl,
+                style: GoogleFonts.vazirmatn(
                     color: myGrey[400],
-                    fontSize: 18,
+                    fontSize: 16,
                     height: 1.6,
-                    fontWeight: FontWeight.w400)),
+                    fontWeight: FontWeight.w500)),
           ],
         ),
         CustomDevider(

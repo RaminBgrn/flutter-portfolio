@@ -35,59 +35,61 @@ class _DesktopState extends State<Desktop> {
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  colorFilter:
-                      ColorFilter.mode(myGrey[900]!, BlendMode.dstATop),
-                  image: const AssetImage('images/background.jpg'),
-                ),
-              ),
-              child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 10,
-                    sigmaY: 10,
+        child: SingleChildScrollView(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    colorFilter:
+                        ColorFilter.mode(myGrey[900]!, BlendMode.dstATop),
+                    image: const AssetImage('images/background.jpg'),
                   ),
-                  child: const SizedBox()),
-            ),
-            Row(
-              textDirection: TextDirection.rtl,
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.75,
-                  width: MediaQuery.of(context).size.width / 2,
-                  decoration: BoxDecoration(
-                    color: myGrey[900],
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(16),
-                      bottomRight: Radius.circular(
-                        16,
+                ),
+                child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 10,
+                      sigmaY: 10,
+                    ),
+                    child: const SizedBox()),
+              ),
+              Row(
+                textDirection: TextDirection.rtl,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.75,
+                    width: MediaQuery.of(context).size.width / 2,
+                    decoration: BoxDecoration(
+                      color: myGrey[900],
+                      borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(16),
+                        bottomRight: Radius.circular(
+                          16,
+                        ),
                       ),
                     ),
+                    child: PageView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      controller: pageController,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        const AboutMe(),
+                        Container(color: Colors.red),
+                      ],
+                    ),
                   ),
-                  child: PageView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    controller: pageController,
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      const AboutMe(),
-                      Container(color: Colors.red),
-                    ],
-                  ),
-                ),
-                const UserInfo(),
-                MainMenu(controller: pageController),
-              ],
-            )
-          ],
+                  const UserInfo(),
+                  MainMenu(controller: pageController),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
