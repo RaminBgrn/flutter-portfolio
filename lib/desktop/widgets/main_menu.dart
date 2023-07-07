@@ -86,35 +86,39 @@ class _MainMenuState extends State<MainMenu> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12.0),
-              child: OnHover(
-                  onClick: () {},
-                  builder: (isHover) {
-                    return SvgPicture.asset(
-                      'svg/work.svg',
-                      width: 32,
-                      height: 32,
-                      colorFilter: isHover
-                          ? ColorFilter.mode(myOrange[400]!, BlendMode.srcIn)
-                          : const ColorFilter.mode(
-                              Colors.white, BlendMode.srcIn),
-                    );
-                  }),
+              child: OnHover(onClick: () {
+                widget.controller.animateToPage(2,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInSine);
+                setState(() => _currentIndex = 2);
+              }, builder: (isHover) {
+                return SvgPicture.asset(
+                  'svg/work.svg',
+                  width: 32,
+                  height: 32,
+                  colorFilter: isHover || _currentIndex == 2
+                      ? ColorFilter.mode(myOrange[400]!, BlendMode.srcIn)
+                      : const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                );
+              }),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12.0),
-              child: OnHover(
-                  onClick: () {},
-                  builder: (isHover) {
-                    return SvgPicture.asset(
-                      'svg/blog.svg',
-                      width: 32,
-                      height: 32,
-                      colorFilter: isHover
-                          ? ColorFilter.mode(myOrange[400]!, BlendMode.srcIn)
-                          : const ColorFilter.mode(
-                              Colors.white, BlendMode.srcIn),
-                    );
-                  }),
+              child: OnHover(onClick: () {
+                widget.controller.animateToPage(3,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInSine);
+                setState(() => _currentIndex = 3);
+              }, builder: (isHover) {
+                return SvgPicture.asset(
+                  'svg/blog.svg',
+                  width: 32,
+                  height: 32,
+                  colorFilter: isHover || _currentIndex == 3
+                      ? ColorFilter.mode(myOrange[400]!, BlendMode.srcIn)
+                      : const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                );
+              }),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12.0),

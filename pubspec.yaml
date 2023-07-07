@@ -40,6 +40,9 @@ dependencies:
   expandable_page_view: ^1.0.17 
   styled_text: ^7.0.0
   timeline_tile: ^2.0.0
+  any_link_preview: ^3.0.1
+  url_launcher: ^6.1.11
+
 
 
 
