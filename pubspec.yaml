@@ -39,6 +39,7 @@ dependencies:
   draggable_home: ^1.0.2
   expandable_page_view: ^1.0.17 
   styled_text: ^7.0.0
+  timeline_tile: ^2.0.0
 
 
 

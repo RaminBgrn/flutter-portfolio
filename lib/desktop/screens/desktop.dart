@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:web_testing/common/colors.dart';
 import 'package:web_testing/desktop/screens/about_me.dart';
+import 'package:web_testing/desktop/screens/resume.dart';
 import 'package:web_testing/desktop/widgets/main_menu.dart';
 import 'package:web_testing/desktop/widgets/user_info.dart';
 
@@ -78,9 +79,9 @@ class _DesktopState extends State<Desktop> {
                       physics: const NeverScrollableScrollPhysics(),
                       controller: pageController,
                       scrollDirection: Axis.vertical,
-                      children: [
-                        const AboutMe(),
-                        Container(color: Colors.red),
+                      children: const [
+                        AboutMe(),
+                        Resume(),
                       ],
                     ),
                   ),

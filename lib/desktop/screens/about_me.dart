@@ -36,8 +36,8 @@ class AboutMe extends StatelessWidget {
                     Colors.white.withOpacity(0.5),
                     Colors.transparent,
                   ],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,8 +107,8 @@ class AboutMe extends StatelessWidget {
                 ),
                 const TitleWidget(title: "پـیشنهاد من", index: 1),
                 CustomDevider(
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
                   colors: [
                     Colors.white.withOpacity(0.5),
                     Colors.transparent,
@@ -248,8 +248,8 @@ class AboutMe extends StatelessWidget {
                   index: 1,
                 ),
                 CustomDevider(
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
                   margin: const EdgeInsets.only(top: 20),
                   colors: [
                     Colors.white.withOpacity(0.5),
