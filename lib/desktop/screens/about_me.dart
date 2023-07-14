@@ -1,6 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_grid_list/responsive_grid_list.dart';
 import 'package:web_testing/common/colors.dart';
 import 'package:web_testing/common/custom_devider.dart';
 import 'package:web_testing/common/skill_item.dart';
@@ -54,7 +56,7 @@ class AboutMe extends StatelessWidget {
                           myInfo("به دنبال کار", "پوزیشن فعلی :"),
                           myInfo("فریلنسری و ریموت", "نوع فعالیت :"),
                           myInfo("فلاتر, اندروید و ووردپرس", "حرفه‌ها :"),
-                          myInfo("جاوااسکریپت و Node JS", "در حال یادگیری :"),
+                          myInfo("Node JS", "در حال یادگیری :"),
                         ],
                       ),
                     ),
@@ -259,10 +261,13 @@ class AboutMe extends StatelessWidget {
                   height: 1,
                 ),
                 const SizedBox(height: 20),
-                GridView(
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3),
+                ResponsiveGridList(
+                  listViewBuilderOptions: ListViewBuilderOptions(
+                    shrinkWrap: true,
+                  ),
+                  minItemWidth: 200,
+                  maxItemsPerRow: 3,
+                  minItemsPerRow: 2,
                   children: [
                     SkillItem(
                       title: "DART",
@@ -329,20 +334,30 @@ class AboutMe extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(title,
+            Expanded(
+              child: AutoSizeText(title,
+                  textDirection: TextDirection.rtl,
+                  maxLines: 1,
+                  style: GoogleFonts.vazirmatn(
+                      color: myOrange[100],
+                      fontSize: 16,
+                      height: 1.6,
+                      fontWeight: FontWeight.w500)),
+            ),
+            Expanded(
+              child: AutoSizeText(
+                value,
                 textDirection: TextDirection.rtl,
-                style: GoogleFonts.vazirmatn(
-                    color: myOrange[100],
-                    fontSize: 16,
-                    height: 1.6,
-                    fontWeight: FontWeight.w500)),
-            Text(value,
-                textDirection: TextDirection.rtl,
+                minFontSize: 5,
+                maxLines: 1,
+                group: AutoSizeGroup(),
                 style: GoogleFonts.vazirmatn(
                     color: myGrey[400],
                     fontSize: 16,
                     height: 1.6,
-                    fontWeight: FontWeight.w500)),
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
           ],
         ),
         CustomDevider(

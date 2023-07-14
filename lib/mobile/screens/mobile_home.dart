@@ -12,30 +12,7 @@ class MobileHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AdvancedDrawer(
-      backdrop: Container(),
-      drawer: const SizedBox(),
-      childDecoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      rtlOpening: true,
-      child: Scaffold(
-        body: DraggableHome(
-          headerWidget: homeHeaderWidget(context),
-          body: [
-            PageView(
-              children: [
-                Container(
-                  color: Colors.red,
-                  child: Text('data'),
-                )
-              ],
-            ),
-          ],
-          title: Text('title'),
-        ),
-      ),
-    );
+    return Scaffold();
   }
 
   Widget homeHeaderWidget(BuildContext context) {

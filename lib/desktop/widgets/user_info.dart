@@ -23,7 +23,7 @@ class UserInfo extends StatelessWidget {
                 color: Colors.black.withOpacity(0.4),
                 blurRadius: 20)
           ]),
-      child: Column(
+      child: ListView(
         children: [
           const SizedBox(
             height: 20,
@@ -75,84 +75,80 @@ class UserInfo extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: Column(
-              children: [
-                Container(
-                  height: 0.3,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Colors.transparent,
-                        Colors.white,
-                        Colors.transparent,
-                      ],
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            height: 0.3,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+                  Colors.transparent,
+                  Colors.white,
+                  Colors.transparent,
+                ],
+              ),
+            ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: SizedBox(
+                  child: Center(
+                    child: OnHover(
+                      onClick: () {},
+                      builder: (isHover) {
+                        return Text(
+                          'دریافت CV',
+                          textDirection: TextDirection.rtl,
+                          style: GoogleFonts.vazirmatn(
+                            fontSize: 14,
+                            color: isHover ? myOrange[300] : myOrange[50],
+                            fontWeight: FontWeight.w500,
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        child: Center(
-                          child: OnHover(
-                            onClick: () {},
-                            builder: (isHover) {
-                              return Text(
-                                'دریافت CV',
-                                textDirection: TextDirection.rtl,
-                                style: GoogleFonts.vazirmatn(
-                                  fontSize: 14,
-                                  color: isHover ? myOrange[300] : myOrange[50],
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              );
-                            },
+              ),
+              Container(
+                width: 0.3,
+                height: 70,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.white,
+                      Colors.transparent,
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: SizedBox(
+                  child: Center(
+                    child: OnHover(
+                      onClick: () {},
+                      builder: (isHover) {
+                        return Text(
+                          'ارتباط با من',
+                          textDirection: TextDirection.rtl,
+                          style: GoogleFonts.vazirmatn(
+                            fontSize: 14,
+                            color: isHover ? myOrange[300] : myOrange[50],
+                            fontWeight: FontWeight.w500,
                           ),
-                        ),
-                      ),
+                        );
+                      },
                     ),
-                    Container(
-                      width: 0.3,
-                      height: 70,
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.white,
-                            Colors.transparent,
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: SizedBox(
-                        child: Center(
-                          child: OnHover(
-                            onClick: () {},
-                            builder: (isHover) {
-                              return Text(
-                                'ارتباط با من',
-                                textDirection: TextDirection.rtl,
-                                style: GoogleFonts.vazirmatn(
-                                  fontSize: 14,
-                                  color: isHover ? myOrange[300] : myOrange[50],
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
+                  ),
+                ),
+              ),
+            ],
           )
         ],
       ),

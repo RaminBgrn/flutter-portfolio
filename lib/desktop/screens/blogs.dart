@@ -1,4 +1,3 @@
-import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -7,7 +6,7 @@ import 'package:web_testing/common/custom_devider.dart';
 import 'package:web_testing/common/title_widget.dart';
 
 class Blogs extends StatelessWidget {
-  Blogs({super.key});
+  const Blogs({super.key});
 
   @override
   Widget build(BuildContext context) {
