@@ -5,6 +5,21 @@ class TabletHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Row(children: [
+        Expanded(
+          flex: 10,
+          child: Container(
+            color: Colors.red,
+          ),
+        ),
+        Expanded(
+          flex: 4,
+          child: Container(
+            color: Colors.blue,
+          ),
+        )
+      ]),
+    );
   }
 }
