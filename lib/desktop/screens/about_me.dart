@@ -23,10 +23,10 @@ class AboutMe extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const TitleWidget(
-                  title: "درباره من",
+                  title: "About Me",
                 ),
                 const SizedBox(
                   height: 20,
@@ -47,16 +47,27 @@ class AboutMe extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(
                             height: 20,
                           ),
-                          myInfo("29", "سن :"),
-                          myInfo("ایران, ارومیه", "محل سکونت :"),
-                          myInfo("به دنبال کار", "پوزیشن فعلی :"),
-                          myInfo("فریلنسری و ریموت", "نوع فعالیت :"),
-                          myInfo("فلاتر, اندروید و ووردپرس", "حرفه‌ها :"),
-                          myInfo("Node JS", "در حال یادگیری :"),
+                          Text(
+                            "Hi my name is Ramin Bagherian.",
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.ltr,
+                            style: GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.w600, color: myGrey[300]),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Text(
+                              "Mobile and web developer from Iran, West Azerbaijan, Urmia, with 5+ years of experience in developing high-quality mobile applications and web applications using Flutter. I have a strong understanding of Flutter's cross-platform capabilities \n I am eager to learn more about your project and how I can help you bring your ideas to life. Please feel free to contact me to discuss your requirements in more detail.",
+                              textDirection: TextDirection.ltr,
+                              textAlign: TextAlign.justify,
+                              style: GoogleFonts.vazirmatn(
+                                  fontSize: 14, height: 1.6, fontWeight: FontWeight.w400, color: myGrey[400]),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -74,40 +85,22 @@ class AboutMe extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           const SizedBox(
                             height: 20,
                           ),
-                          Text(
-                            "سلام من رامین باقریان هستم.",
-                            textAlign: TextAlign.center,
-                            textDirection: TextDirection.rtl,
-                            style: GoogleFonts.vazirmatn(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                                color: myGrey[300]),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(top: 2.0, left: 12.0),
-                            child: Text(
-                              "برنامه نویس موبایل و وب از ایران آذربایجان غربی ارومیه, تجربایت ارزشمندی در زمینه توسعه اپلیکیشن‌های موبایل و توسعه وب به واسطه فلاتر دارم و مشتاقانه منتظر شما برای عملی کردن ایده‌هایتان هستم .",
-                              textDirection: TextDirection.rtl,
-                              textAlign: TextAlign.justify,
-                              style: GoogleFonts.vazirmatn(
-                                  fontSize: 14,
-                                  height: 1.8,
-                                  fontWeight: FontWeight.w400,
-                                  color: myGrey[400]),
-                            ),
-                          ),
+                          myInfo("29", "Age :"),
+                          myInfo("Iran, West azerbaijan", "Address :"),
+                          myInfo("looking for job", "Current position :"),
+                          myInfo("remote, face-to-face", "Type of activity :"),
+                          myInfo("Flutter, Laravel, Git", "Professions :"),
                         ],
                       ),
                     ),
                   ],
                 ),
-                const TitleWidget(title: "پـیشنهاد من", index: 1),
+                const SizedBox(height: 38),
+                const TitleWidget(title: "My Suggestion", index: 0),
                 CustomDevider(
                   begin: Alignment.centerRight,
                   end: Alignment.centerLeft,
@@ -135,27 +128,22 @@ class AboutMe extends StatelessWidget {
                               margin: const EdgeInsets.only(bottom: 6),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      colors: [
-                                        myOrange[400]!.withOpacity(0.2),
-                                        Colors.transparent,
-                                      ])),
+                                  gradient:
+                                      LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [
+                                    myOrange[400]!.withOpacity(0.2),
+                                    Colors.transparent,
+                                  ])),
                               child: SvgPicture.asset(
                                 'svg/mobile.svg',
-                                colorFilter: const ColorFilter.mode(
-                                    Colors.white, BlendMode.srcIn),
+                                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
                                 width: 10,
                                 height: 10,
                               ),
                             ),
                             Text(
-                              'توسعه موبایل اپ',
-                              style: GoogleFonts.vazirmatn(
-                                  color: myGrey[200],
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600),
+                              'Mobile App Development',
+                              style:
+                                  GoogleFonts.vazirmatn(color: myGrey[200], fontSize: 16, fontWeight: FontWeight.w600),
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(
@@ -163,14 +151,11 @@ class AboutMe extends StatelessWidget {
                                 vertical: 8,
                               ),
                               child: Text(
-                                  'قبل از توسعه اپ یک نمونه پیشنمایش از ایده خود تهیه کنید و از جامعه هدف خود بخواهید که نظر خود را در این باره بیان کنند.',
+                                  "Before developing an app, create a prototype of your idea and get feedback from your target audience",
                                   textAlign: TextAlign.center,
-                                  textDirection: TextDirection.rtl,
+                                  textDirection: TextDirection.ltr,
                                   style: GoogleFonts.vazirmatn(
-                                      color: myGrey[400],
-                                      fontSize: 14,
-                                      height: 1.6,
-                                      fontWeight: FontWeight.w400)),
+                                      color: myGrey[400], fontSize: 14, height: 1.6, fontWeight: FontWeight.w400)),
                             )
                           ],
                         ),
@@ -179,10 +164,7 @@ class AboutMe extends StatelessWidget {
                     CustomDevider(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.white.withOpacity(0.5),
-                        Colors.transparent
-                      ],
+                      colors: [Colors.white.withOpacity(0.5), Colors.transparent],
                       width: 1,
                       height: 300,
                     ),
@@ -199,13 +181,11 @@ class AboutMe extends StatelessWidget {
                               margin: const EdgeInsets.only(bottom: 6),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      colors: [
-                                        myOrange[400]!.withOpacity(0.2),
-                                        Colors.transparent,
-                                      ])),
+                                  gradient:
+                                      LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [
+                                    myOrange[400]!.withOpacity(0.2),
+                                    Colors.transparent,
+                                  ])),
                               child: SvgPicture.asset('svg/web.svg',
                                   colorFilter: const ColorFilter.mode(
                                     Colors.white,
@@ -215,11 +195,9 @@ class AboutMe extends StatelessWidget {
                                   height: 10),
                             ),
                             Text(
-                              'توسعه وبسایت',
-                              style: GoogleFonts.vazirmatn(
-                                  color: myGrey[200],
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600),
+                              'Web Development',
+                              style:
+                                  GoogleFonts.vazirmatn(color: myGrey[200], fontSize: 16, fontWeight: FontWeight.w600),
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(
@@ -227,14 +205,16 @@ class AboutMe extends StatelessWidget {
                                 vertical: 8,
                               ),
                               child: Text(
-                                  'برای شروع یک بیزینس کوچک بهترین کار استفاده از CMS (وردپرس) میباشد که هم صرفه اقتصادی دارد و هم دارای سرعت بالا در توسعه میباشد ',
-                                  textDirection: TextDirection.rtl,
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.vazirmatn(
-                                      color: myGrey[400],
-                                      fontSize: 14,
-                                      height: 1.6,
-                                      fontWeight: FontWeight.w400)),
+                                "Using a CMS like WordPress can be a great option for starting a small business.",
+                                textDirection: TextDirection.ltr,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.vazirmatn(
+                                  color: myGrey[400],
+                                  fontSize: 14,
+                                  height: 1.6,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -242,12 +222,12 @@ class AboutMe extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
                 const TitleWidget(
-                  title: "مـهارت‌های من",
-                  index: 1,
+                  title: "My Skills",
+                  index: 0,
                 ),
                 CustomDevider(
                   begin: Alignment.centerRight,
@@ -335,28 +315,21 @@ class AboutMe extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: AutoSizeText(title,
-                  textDirection: TextDirection.rtl,
-                  maxLines: 1,
-                  style: GoogleFonts.vazirmatn(
-                      color: myOrange[100],
-                      fontSize: 16,
-                      height: 1.6,
-                      fontWeight: FontWeight.w500)),
-            ),
-            Expanded(
               child: AutoSizeText(
                 value,
-                textDirection: TextDirection.rtl,
+                textDirection: TextDirection.ltr,
                 minFontSize: 5,
                 maxLines: 1,
                 group: AutoSizeGroup(),
-                style: GoogleFonts.vazirmatn(
-                    color: myGrey[400],
-                    fontSize: 16,
-                    height: 1.6,
-                    fontWeight: FontWeight.w500),
+                style: GoogleFonts.openSans(color: myGrey[400], fontSize: 16, height: 1.6, fontWeight: FontWeight.w500),
               ),
+            ),
+            Expanded(
+              child: AutoSizeText(title,
+                  textDirection: TextDirection.ltr,
+                  maxLines: 1,
+                  style: GoogleFonts.openSans(
+                      color: myOrange[100], fontSize: 16, height: 1.6, fontWeight: FontWeight.w500)),
             ),
           ],
         ),

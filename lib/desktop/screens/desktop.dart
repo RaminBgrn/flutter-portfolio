@@ -47,8 +47,7 @@ class _DesktopState extends State<Desktop> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    colorFilter:
-                        ColorFilter.mode(myGrey[900]!, BlendMode.dstATop),
+                    colorFilter: ColorFilter.mode(myGrey[900]!, BlendMode.dstATop),
                     image: const AssetImage('images/background.jpg'),
                   ),
                 ),
@@ -65,7 +64,7 @@ class _DesktopState extends State<Desktop> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.75,
+                    height: MediaQuery.of(context).size.height * 0.85,
                     width: MediaQuery.of(context).size.width / 2,
                     decoration: BoxDecoration(
                       color: myGrey[900],
@@ -80,7 +79,12 @@ class _DesktopState extends State<Desktop> {
                       physics: const NeverScrollableScrollPhysics(),
                       controller: pageController,
                       scrollDirection: Axis.vertical,
-                      children: [AboutMe(), Resume(), SizedBox(), Blogs()],
+                      children: const [
+                        AboutMe(),
+                        Resume(),
+                        SizedBox(),
+                        Blogs(),
+                      ],
                     ),
                   ),
                   const UserInfo(),
