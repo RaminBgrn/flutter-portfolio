@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web_testing/common/my_animated_text.dart';
@@ -12,21 +13,30 @@ class UserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.92,
-      width: MediaQuery.of(context).size.width / 4,
+      height: MediaQuery.of(context).size.height,
+      width: 300,
+      constraints: const BoxConstraints(
+        minHeight: 300,
+        maxHeight: 650,
+      ),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: myGrey[900],
           boxShadow: [BoxShadow(offset: const Offset(5, 8), color: Colors.black.withOpacity(0.4), blurRadius: 20)]),
-      child: ListView(
+      child: Column(
         children: [
           const SizedBox(
             height: 20,
           ),
-          CircleAvatar(
-            backgroundImage: const AssetImage('images/me.jpg'),
-            radius: 150,
-            backgroundColor: myOrange[400]!,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+            child: CircleAvatar(
+              backgroundImage: const AssetImage(
+                'images/me.jpg',
+              ),
+              radius: 150,
+              backgroundColor: myOrange[400]!,
+            ),
           ),
           const SizedBox(
             height: 40,
@@ -38,10 +48,11 @@ class UserInfo extends StatelessWidget {
                 children: [
                   TitleWidget(
                     title: "Ramin",
-                    index: 0,
                   ),
                   SizedBox(width: 8),
-                  TitleWidget(title: "Bagherian"),
+                  TitleWidget(
+                    title: "Bagherian",
+                  ),
                 ],
               ),
               const SizedBox(height: 15),
@@ -67,77 +78,79 @@ class UserInfo extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Container(
-            height: 0.3,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [
-                  Colors.transparent,
-                  Colors.white,
-                  Colors.transparent,
-                ],
-              ),
+          // Container(
+          //   height: 0.3,
+          //   decoration: const BoxDecoration(
+          //     gradient: LinearGradient(
+          //       begin: Alignment.centerLeft,
+          //       end: Alignment.centerRight,
+          //       colors: [
+          //         Colors.transparent,
+          //         Colors.white,
+          //         Colors.transparent,
+          //       ],
+          //     ),
+          //   ),
+          // ),
+          Expanded(
+            child: Column(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    child: Center(
+                      child: OnHover(
+                        onClick: () {},
+                        builder: (isHover) {
+                          return Text(
+                            'Download CV',
+                            textDirection: TextDirection.rtl,
+                            style: GoogleFonts.openSans(
+                              fontSize: 14,
+                              color: isHover ? myOrange[300] : myOrange[50],
+                              fontWeight: FontWeight.w500,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: OnHover(
+                      onClick: () {},
+                      builder: (isHover) {
+                        return Container(
+                          width: double.infinity,
+                          height: 70,
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(
+                              width: 1,
+                              color: myOrange[400]!,
+                            ),
+                          ),
+                          child: Text(
+                            "Contact Me",
+                            textDirection: TextDirection.rtl,
+                            style: GoogleFonts.openSans(
+                              fontSize: 14,
+                              color: isHover ? myOrange[300] : myOrange[50],
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  child: Center(
-                    child: OnHover(
-                      onClick: () {},
-                      builder: (isHover) {
-                        return Text(
-                          'Download CV',
-                          textDirection: TextDirection.rtl,
-                          style: GoogleFonts.openSans(
-                            fontSize: 14,
-                            color: isHover ? myOrange[300] : myOrange[50],
-                            fontWeight: FontWeight.w500,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 0.3,
-                height: 70,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.white,
-                      Colors.transparent,
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                child: SizedBox(
-                  child: Center(
-                    child: OnHover(
-                      onClick: () {},
-                      builder: (isHover) {
-                        return Text(
-                          "Contact Me",
-                          textDirection: TextDirection.rtl,
-                          style: GoogleFonts.openSans(
-                            fontSize: 14,
-                            color: isHover ? myOrange[300] : myOrange[50],
-                            fontWeight: FontWeight.w500,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ),
-            ],
+          const SizedBox(
+            height: 10,
           )
         ],
       ),

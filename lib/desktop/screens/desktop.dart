@@ -68,12 +68,12 @@ class _DesktopState extends State<Desktop> {
                     width: MediaQuery.of(context).size.width / 2,
                     decoration: BoxDecoration(
                       color: myGrey[900],
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(16),
-                        bottomRight: Radius.circular(
-                          16,
-                        ),
-                      ),
+                      borderRadius: MediaQuery.sizeOf(context).height > 1000
+                          ? BorderRadius.circular(16)
+                          : const BorderRadius.only(
+                              topRight: Radius.circular(16),
+                              bottomRight: Radius.circular(16),
+                            ),
                     ),
                     child: PageView(
                       physics: const NeverScrollableScrollPhysics(),
@@ -87,6 +87,11 @@ class _DesktopState extends State<Desktop> {
                       ],
                     ),
                   ),
+                  MediaQuery.sizeOf(context).height > 1000
+                      ? const SizedBox(
+                          width: 12,
+                        )
+                      : const SizedBox(),
                   const UserInfo(),
                   MainMenu(controller: pageController),
                 ],
